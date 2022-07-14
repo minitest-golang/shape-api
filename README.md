@@ -27,8 +27,10 @@ After starting services, the Swagger API can be accessed at:
 http://localhost:8081/app/v1/swagger/index.html 
 
 # 6. How to test
-* Using python test file
+* Using python test file: 
+
 `cd ./test`
+
 `python3 api_test.py`
 
 * Using Postman
