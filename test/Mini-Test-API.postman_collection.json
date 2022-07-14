@@ -1,0 +1,300 @@
+{
+	"info": {
+		"_postman_id": "9b8ee939-b245-43f6-bf50-ace255032d2b",
+		"name": "Mini-Test-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Signup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin@@123\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/app/v1/user/signup",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"app",
+						"v1",
+						"user",
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"admin@@123\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/app/v1/user/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"app",
+						"v1",
+						"user",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create-Shape",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiZXhwIjoxNjU3ODA4OTE1fQ.L4s8Gu5p2JdHPO1owhKqHdpEKLixjxQoscovGZRBuiU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"shape\": \"square\",\r\n    \"edges\": [\r\n        \"2.0\"\r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/app/v1/shape/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"app",
+						"v1",
+						"shape",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get-All-Shapes",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiZXhwIjoxNjU3ODA4OTE1fQ.L4s8Gu5p2JdHPO1owhKqHdpEKLixjxQoscovGZRBuiU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8081/app/v1/shape",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"app",
+						"v1",
+						"shape"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get-Specific-Shape",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiZXhwIjoxNjU3ODA4OTE1fQ.L4s8Gu5p2JdHPO1owhKqHdpEKLixjxQoscovGZRBuiU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8081/app/v1/shape/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"app",
+						"v1",
+						"shape",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Edit-Shape",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiZXhwIjoxNjU3ODA4OTE1fQ.L4s8Gu5p2JdHPO1owhKqHdpEKLixjxQoscovGZRBuiU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"edges\" : [\r\n        \"8.0\" \r\n    ]\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/app/v1/shape/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"app",
+						"v1",
+						"shape",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Calculate-Shape",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiZXhwIjoxNjU3ODA4OTE1fQ.L4s8Gu5p2JdHPO1owhKqHdpEKLixjxQoscovGZRBuiU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"query\" : \"{area(shape_id:5) \\n perimeter(shape_id:5)}\"\r\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8081/app/v1/shape/calculate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"app",
+						"v1",
+						"shape",
+						"calculate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete-Shape",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiZXhwIjoxNjU3ODA4OTE1fQ.L4s8Gu5p2JdHPO1owhKqHdpEKLixjxQoscovGZRBuiU",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8081/app/v1/shape/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"app",
+						"v1",
+						"shape",
+						"5"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

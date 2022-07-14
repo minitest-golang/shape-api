@@ -1,0 +1,366 @@
+definitions:
+  v1.AllShapeInfoResp:
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/v1.ShapeItem'
+        type: array
+      status:
+        example: OK
+        type: string
+    type: object
+  v1.EdgeInfo:
+    properties:
+      edges:
+        example:
+        - '[''1'''
+        - ' ''2'''
+        - ' ''3'']'
+        items:
+          type: string
+        type: array
+    type: object
+  v1.ErrorResponse:
+    properties:
+      status:
+        example: An error description
+        type: string
+    type: object
+  v1.LoginInfo:
+    properties:
+      password:
+        example: passw0rd
+        type: string
+      username:
+        example: peterweb
+        type: string
+    type: object
+  v1.LoginSuccessResp:
+    properties:
+      data:
+        $ref: '#/definitions/v1.TokenResp'
+      status:
+        example: OK
+        type: string
+    type: object
+  v1.OKResponse:
+    properties:
+      status:
+        example: OK
+        type: string
+    type: object
+  v1.ShapeCalculationBody:
+    properties:
+      query:
+        example: |-
+          {area(shape_id:1)
+           perimeter(shape_id:2)}
+        type: string
+    type: object
+  v1.ShapeCalculationResp:
+    properties:
+      data:
+        $ref: '#/definitions/v1.ShapeValue'
+      status:
+        example: OK
+        type: string
+    type: object
+  v1.ShapeCreateResp:
+    properties:
+      data:
+        $ref: '#/definitions/v1.ShapeId'
+      status:
+        example: OK
+        type: string
+    type: object
+  v1.ShapeId:
+    properties:
+      shape_id:
+        example: 123
+        type: integer
+    type: object
+  v1.ShapeInfo:
+    properties:
+      edges:
+        example:
+        - '[''1'''
+        - ' ''2'''
+        - ' ''3'']'
+        items:
+          type: string
+        type: array
+      shape:
+        example: triangle
+        type: string
+    type: object
+  v1.ShapeItem:
+    properties:
+      edges:
+        example:
+        - '[''1'''
+        - ' ''2'''
+        - ' ''3'']'
+        items:
+          type: string
+        type: array
+      shape:
+        example: triangle
+        type: string
+      shape_id:
+        example: 123
+        type: integer
+    type: object
+  v1.ShapeValue:
+    properties:
+      area:
+        example: "12.1234"
+        type: string
+      perimeter:
+        example: "30.0000"
+        type: string
+    type: object
+  v1.SignupInfo:
+    properties:
+      password:
+        example: passw0rd
+        type: string
+      username:
+        example: peterweb
+        type: string
+    type: object
+  v1.TokenResp:
+    properties:
+      access_token:
+        example: abx...xyz
+        type: string
+    type: object
+  v1.UnauthorizedResponse:
+    properties:
+      status:
+        example: Unauthorized
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /app/v1/shape:
+    get:
+      consumes:
+      - application/json
+      description: Client uses this API to get all created shapes.
+      parameters:
+      - description: Bearer
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.AllShapeInfoResp'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.ErrorResponse'
+      summary: Get All Shapes
+      tags:
+      - ShapeApi
+  /app/v1/shape/{shape_id}:
+    delete:
+      consumes:
+      - application/json
+      description: Client uses this API to delete a shape specified by ID.
+      parameters:
+      - description: Bearer
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.OKResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.ErrorResponse'
+      summary: Delete a specific shape
+      tags:
+      - ShapeApi
+    get:
+      consumes:
+      - application/json
+      description: Client uses this API to get a created shape with specific shape
+        ID.
+      parameters:
+      - description: Bearer
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.ShapeInfo'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.ErrorResponse'
+      summary: Get Specific Shape From ID
+      tags:
+      - ShapeApi
+    put:
+      consumes:
+      - application/json
+      description: Client uses this API to update shape's edge values.
+      parameters:
+      - description: Bearer
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: Shape's Edge Information
+        in: body
+        name: EdgeInfo
+        required: true
+        schema:
+          $ref: '#/definitions/v1.EdgeInfo'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.OKResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.ErrorResponse'
+      summary: Update a specific shape
+      tags:
+      - ShapeApi
+  /app/v1/shape/calculate:
+    post:
+      consumes:
+      - application/json
+      description: Client uses this API to Calculate Area or Perimeter of a specific
+        Shape based on ID.
+      parameters:
+      - description: Bearer
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: GaphQL Query
+        in: body
+        name: ShapeCalculationBody
+        required: true
+        schema:
+          $ref: '#/definitions/v1.ShapeCalculationBody'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.ShapeCalculationResp'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.ErrorResponse'
+      summary: Calculate Area or Perimeter of a specific Shape based on ID
+      tags:
+      - ShapeApi
+  /app/v1/shape/create:
+    post:
+      consumes:
+      - application/json
+      description: Client uses this API to create a shape.
+      parameters:
+      - description: Bearer
+        in: header
+        name: Authorization
+        required: true
+        type: string
+      - description: Shape Information
+        in: body
+        name: ShapeInfo
+        required: true
+        schema:
+          $ref: '#/definitions/v1.ShapeInfo'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.ShapeCreateResp'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.ErrorResponse'
+      summary: Create Shape
+      tags:
+      - ShapeApi
+  /app/v1/user/login:
+    post:
+      consumes:
+      - application/json
+      description: User uses this API to login the system.
+      parameters:
+      - description: User Login Body
+        in: body
+        name: LoginInfo
+        required: true
+        schema:
+          $ref: '#/definitions/v1.LoginInfo'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.LoginSuccessResp'
+        "401":
+          description: Unauthorized
+          schema:
+            $ref: '#/definitions/v1.UnauthorizedResponse'
+      summary: Login
+      tags:
+      - UserApi
+  /app/v1/user/signup:
+    post:
+      consumes:
+      - application/json
+      description: Client uses this API to create a new user.
+      parameters:
+      - description: User Signup Body
+        in: body
+        name: SignUpInfo
+        required: true
+        schema:
+          $ref: '#/definitions/v1.SignupInfo'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/v1.OKResponse'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/v1.ErrorResponse'
+      summary: Signup
+      tags:
+      - UserApi
+swagger: "2.0"
