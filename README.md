@@ -23,8 +23,8 @@ Please go to the project folder, then run following command:
 `docker-compose up -d –build`
 
 # 5. Swagger API
-After starting services, the Swagger API can be accessed at:
-http://localhost:8081/app/v1/swagger/index.html 
+    * The Swagger API is available at: http://34.101.32.199:8081/app/v1/swagger/index.html 
+    * Or after starting docker containers, the Swagger API can be accessed at local: http://localhost:8081/app/v1/swagger/index.html 
 
 # 6. How to test
 * Using python test file: 
