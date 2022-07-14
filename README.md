@@ -20,7 +20,7 @@ Go to the project folder, then run following command:
 
 # 4. Start containers for test
 Please go to the project folder, then run following command:
-`docker-compose up -d –build`
+`docker-compose up -d –-build`
 
 # 5. Swagger API
 * The Swagger API is available at: http://34.101.32.199:8081/app/v1/swagger/index.html 
