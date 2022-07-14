@@ -34,4 +34,5 @@ http://localhost:8081/app/v1/swagger/index.html
     `python3 api_test.py`
 
 * Using Postman
-Import Postman Requests at: `./test/Mini-Test-API.postman_collection.json`
+
+    Import Postman Requests at: `./test/Mini-Test-API.postman_collection.json`
