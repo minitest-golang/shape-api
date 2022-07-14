@@ -35,4 +35,5 @@ http://localhost:8081/app/v1/swagger/index.html
 
 * Using Postman
 Import Postman Requests at:
-./test/Mini-Test-API.postman_collection.json
+
+`./test/Mini-Test-API.postman_collection.json`
