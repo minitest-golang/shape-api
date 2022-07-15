@@ -18,6 +18,8 @@ For Windows, Docker Desktop could be a choice.
 Go to the project folder, then run following command:
 `go test ./...`
 
+All unit-test files are in `./test` folder. 
+
 # 4. Start containers for test
 Please go to the project folder, then run following command:
 `docker-compose up -d –-build`
